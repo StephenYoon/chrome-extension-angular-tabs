@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * create a new angular app with routing (ng new chrome-extension-angular-tabs)
 * install the required packages by running command "npm install"
 * create manifest.json in the angular src folder
-* npm install @types/Chrome -–save-dev
+* npm install --save-dev @types/chrome
 
 ## More information about Chrome Extensions
 A Chrome Extension can have three distinct front-end components:
