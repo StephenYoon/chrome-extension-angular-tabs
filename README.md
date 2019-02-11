@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * install the required packages by running command "npm install"
 * create manifest.json in the angular src folder
 * npm install --save-dev @types/chrome
-* npm install --save-dev gulp
+* npm install --global gulp-cli
 * npm install --save-dev gulp-typescript
 * npm install --save-dev gulp-sourcemaps
 * npm install --save-dev gulp-uglify
