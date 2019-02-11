@@ -15,6 +15,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install --save-dev vinyl-source-stream
 * npm install --save-dev vinyl-buffer tsify
 
+## Special note
+When the default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify. After a bit of research, the format I have in this repo seems to work.
+
 ## More information about Chrome Extensions
 A Chrome Extension can have three distinct front-end components:
 * **Extension icon** (browser action) – this is an icon that is displayed next to the browser’s Omnibox (Google Chrome’s address bar)
