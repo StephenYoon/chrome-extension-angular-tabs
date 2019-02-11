@@ -31,7 +31,6 @@ gulp.task('content-script', gulp.series(function() {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./dist/'));
 }));
-//gulp.task('default', ['ng-build', 'content-script']);
-gulp.task('default', gulp.series('ng-build', 'content-script', function(){
-
+gulp.task('default', gulp.series('ng-build', 'content-script', function(done){
+    done();
 }));
