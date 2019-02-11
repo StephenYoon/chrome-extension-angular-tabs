@@ -7,6 +7,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * install the required packages by running command "npm install"
 * create manifest.json in the angular src folder
 * npm install --save-dev @types/chrome
+* npm install --save-dev gulp
+* npm install --save-dev gulp-typescript
+* npm install --save-dev gulp-sourcemaps
+* npm install --save-dev gulp-uglify
+* npm install --save-dev browserify
+* npm install --save-dev vinyl-source-stream
+* npm install --save-dev vinyl-buffer tsify
 
 ## More information about Chrome Extensions
 A Chrome Extension can have three distinct front-end components:
