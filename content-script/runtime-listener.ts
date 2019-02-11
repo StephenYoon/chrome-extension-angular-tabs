@@ -7,7 +7,7 @@ export class RuntimeListener {
             const command = message['command'];
             console.log('Received runtime command: ' + command);
             const response = { message: 'Aye!' };
-            sendResponse(response);
+            //sendResponse(response);
         });
     }
 }

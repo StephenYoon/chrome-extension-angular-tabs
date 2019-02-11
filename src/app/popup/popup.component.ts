@@ -18,7 +18,7 @@ export class PopupComponent implements OnInit {
             const port = chrome.tabs.connect(tabs[0].id);
             port.postMessage('Hello!');
             port.onMessage.addListener((response) => {
-                alert('Content script responded: ' + response);
+                //alert('Content script responded: ' + response);
             });
         });
     }
@@ -29,7 +29,7 @@ export class PopupComponent implements OnInit {
             const commandMessage = { command: 'salute' };
             chrome.tabs.sendMessage(tabs[0].id, commandMessage, (response) => {
                 const responseMessage = response['message'];
-                alert('Content script responded: ' + responseMessage);
+                //alert('Content script responded: ' + responseMessage);
             });
         });
     }

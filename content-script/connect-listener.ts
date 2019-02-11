@@ -11,6 +11,6 @@ export class ConnectListener {
     onConnectMessageHandler(msg, port) {
         console.log('Received connection message: ' + msg);
         const response = 'Greetings!';
-        port.postMessage(response);
+        //port.postMessage(response);
     }
 }

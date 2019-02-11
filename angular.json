@@ -21,7 +21,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/images/get_started16.png",
+              "src/images/get_started32.png",
+              "src/images/get_started48.png",
+              "src/images/get_started128.png"
             ],
             "styles": [
               "src/styles.css"
