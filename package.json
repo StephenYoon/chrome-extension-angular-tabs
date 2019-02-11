@@ -33,7 +33,12 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "browserify": "^16.2.3",
     "codelyzer": "~4.5.0",
+    "gulp": "^4.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^5.0.0",
+    "gulp-uglify": "^3.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -43,7 +48,10 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
+    "tsify": "^4.0.1",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
