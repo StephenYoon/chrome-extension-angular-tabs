@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   myTabs = [];
 
   ngOnInit() {
-    this.getAllTabs();
+    this.myTabs = this.getAllTabs(this.myTabs);
     this.myTabs.push({
       title: 'tab.title', 
       url: 'tab.url',
@@ -19,32 +19,37 @@ export class AppComponent implements OnInit {
     })
   }
 
-  getAllTabs(): void {    
-    chrome.tabs.query({}, function(tabs) {
-      // this.tabURL = tabs[0].url;
-      // alert('Current tab:' + tabs[0].url + ', Number of tabs: ' + tabs.length);
+  getAllTabs(myTabs): any[] {    
+    var tempTabs = [];
 
+    chrome.tabs.query({}, function(tabs) {
       console.log("\n/////////////////////\n");
+      
       tabs.forEach(function(tab){
         console.log(tab.url);
-      });
-
-      var tempTabs = [];
-      alert('Number of tabs: ' + tabs.length + ', ' + tabs[0].title);
-
-      for (let tab of tabs) {
+        
         tempTabs.push({
           title: tab.title, 
           url: tab.url,
           favIconUrl: tab.favIconUrl
         });
+        
+        myTabs.push({
+          title: tab.title, 
+          url: tab.url,
+          favIconUrl: tab.favIconUrl
+        });
+      });
 
-      }
+      alert('Number of tabs: ' + tabs.length + ', ' + tabs[0].title);
 
       alert('Number of tempTabs: ' + tempTabs.length);
-      this.myTabs = tempTabs;
-      alert('Number of myTabs: ' + this.myTabs.length);
+      
+      alert('Number of myTabs: ' + myTabs.length);
+
     });
 
+    alert('Final number of tempTabs: ' + tempTabs.length);
+    return tempTabs;
   };
 }
