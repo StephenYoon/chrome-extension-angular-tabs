@@ -16,7 +16,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install --save-dev vinyl-buffer tsify
 
 ## Special note
-When the default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify. After a bit of research, the format I have in this repo seems to work.
+The default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify if you plan on using gulp to run task content-script for it's js file. After a bit of research, the format I have in this repo seems to work.
 
 ## More information about Chrome Extensions
 A Chrome Extension can have three distinct front-end components:
