@@ -8,12 +8,6 @@
     "page": "index.html#/event-page",
     "persistent": false
   },
-  "content_scripts": [
-      {
-          "matches": ["*://*/*"],
-          "js": ["content-script.js"]
-      }
-  ],
   "browser_action": {
     "default_title": "Open Popup!",
     "default_popup": "index.html#/popup"
