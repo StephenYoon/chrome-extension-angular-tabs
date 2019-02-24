@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, ApplicationRef } from '@angular/core';
+import { ManageTabsService } from './manage-tabs.service';
 import { MyTab } from './MyTab';
 
 @Component({
@@ -7,37 +8,34 @@ import { MyTab } from './MyTab';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Tab Manager!';
-  myTabs = [];
+  public title = 'Tab Manager!';
+  public myTabs: MyTab[];
+
+  constructor(private manageTabService: ManageTabsService) { }
 
   ngOnInit() {
-    this.getAllTabs(this.somehowGetTabInfo);
+    this.myTabs = [];
+    this.getAllTabs();
   }
 
-  somehowGetTabInfo(tempTabs: []): void {
-    console.log('Number of tabs in blah(): ' + tempTabs.length);
-    console.log('this.myTabs: ' + this.myTabs); // <-- this doesn't work, this.myTabs is undefined
-    this.myTabs = tempTabs; // <-- this doesn't work, this.myTabs is undefined
-  }
+  getAllTabs(): void {    
 
-  getAllTabs(customFunction): void {
-    chrome.tabs.query({}, function(tabs) {
+    this.myTabs = [];
+    chrome.tabs.query({}, (tabs) => {
       console.log("\n/////////////////////\n");
       
-      //let tempTabs: MyTab[];
-      let tempTabs = [];
-      tabs.forEach(function(tab){
+      tabs.forEach((tab) => {
         console.log(tab.url);
         
-        tempTabs.push({
+        this.myTabs.push({
           title: tab.title, 
           url: tab.url,
           favIconUrl: tab.favIconUrl
         });
       });
 
-      console.log('Number of tempTabs: ' + tempTabs.length);
-      customFunction(tempTabs);
+      console.log('Number of tempTabs: ' + this.myTabs.length);
     });
+
   };
 }
