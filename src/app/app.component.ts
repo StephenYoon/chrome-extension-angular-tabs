@@ -32,13 +32,19 @@ export class AppComponent implements OnInit {
         this.myTabs.push({
           title: tab.title, 
           url: tab.url,
-          favIconUrl: tab.favIconUrl
+          favIconUrl: tab.favIconUrl,
+          windowId: tab.windowId,
+          tabIndex: tab.index
         });
       });
         
       // this.changeDetectorRef.detectChanges();
       console.log('Number of tempTabs: ' + this.myTabs.length);
     });
+  };
+
+  selectTab(tabIndex: number): void {
+    chrome.tabs.highlight({'tabs': tabIndex}, function() {});
   };
   
   onClickMe() {
