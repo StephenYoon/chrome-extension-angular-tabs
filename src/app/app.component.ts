@@ -1,5 +1,4 @@
 import { Component, OnInit, NgZone, ApplicationRef } from '@angular/core';
-import { ManageTabsService } from './manage-tabs.service';
 import { MyTab } from './MyTab';
 
 @Component({
@@ -11,16 +10,19 @@ export class AppComponent implements OnInit {
   public title = 'Tab Manager!';
   public myTabs: MyTab[];
 
-  constructor(private manageTabService: ManageTabsService) { }
+  constructor(private zone: NgZone) { }
 
   ngOnInit() {
     this.myTabs = [];
-    this.getAllTabs();
+    
+    this.zone.run(() => {
+      this.getAllTabs();
+    });
   }
 
-  getAllTabs(): void {    
-
+  getAllTabs(): void {
     this.myTabs = [];
+
     chrome.tabs.query({}, (tabs) => {
       console.log("\n/////////////////////\n");
       
@@ -33,9 +35,13 @@ export class AppComponent implements OnInit {
           favIconUrl: tab.favIconUrl
         });
       });
-
+        
+      // this.changeDetectorRef.detectChanges();
       console.log('Number of tempTabs: ' + this.myTabs.length);
     });
-
+  };
+  
+  onClickMe() {
+    console.log('Update, number of tempTabs: ' + this.myTabs.length);
   };
 }
