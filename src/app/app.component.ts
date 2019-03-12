@@ -1,4 +1,5 @@
 import { Component, OnInit, NgZone, ApplicationRef } from '@angular/core';
+import { FirebaseService } from './services/firebase.service';
 import { MyTab } from './MyTab';
 
 @Component({
@@ -10,7 +11,10 @@ export class AppComponent implements OnInit {
   public title = 'Tab Manager!';
   public myTabs: MyTab[];
 
-  constructor(private zone: NgZone) { }
+  constructor(
+    public firebaseService: FirebaseService,
+    private zone: NgZone
+  ) { }
 
   ngOnInit() {
     this.myTabs = [];
@@ -52,5 +56,14 @@ export class AppComponent implements OnInit {
   
   onClickMe() {
     console.log('Update, number of tempTabs: ' + this.myTabs.length);
+  };
+
+  onClickSave() {
+    let testTab = this.myTabs[0];
+    this.firebaseService.createTab(testTab)
+    .then(() => {
+        console.log('Saved: ' + testTab.title);
+      }      
+    );    
   };
 }
