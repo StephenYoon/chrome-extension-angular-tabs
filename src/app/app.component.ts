@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.myTabs = [];
     
+    // https://angular.io/api/core/NgZone
     this.zone.run(() => {
       this.getAllTabs();
     });
@@ -23,6 +24,8 @@ export class AppComponent implements OnInit {
   getAllTabs(): void {
     this.myTabs = [];
 
+    // NOTE: chrome.tabs.query() executes outside of Angular and thus changes to models won't be detected
+    //       and updated in the UI. Thus use this.zone.run() in ngOnInit().
     chrome.tabs.query({}, (tabs) => {
       console.log("\n/////////////////////\n");
       
