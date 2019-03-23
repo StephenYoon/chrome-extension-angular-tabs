@@ -12,7 +12,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install --save font-awesome
 
 ## Running locally with Chrome
-* "ng build" your Angular application
+* "npm install" if any new npm packages were added
+* "ng build" your Angular application to move your compiled files to the "dist" folder
 * Enable extensions in Chrome
 * Add your extension by referencing your "dist" output folder from your "ng build"
 
