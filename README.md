@@ -11,6 +11,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install --save bootstrap
 * npm install --save font-awesome
 
+## Running locally with Chrome
+* "ng build" your Angular application
+* Enable extensions in Chrome
+* Add your extension by referencing your "dist" output folder from your "ng build"
+
 ## Special note
 The default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify if you plan on using gulp to run task content-script for it's js file. After a bit of research, the format I have in this repo seems to work.
 
