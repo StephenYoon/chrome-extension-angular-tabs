@@ -6,14 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * create a new angular app with routing (ng new chrome-extension-angular-tabs)
 * install the required packages by running command "npm install"
 * create manifest.json in the angular src folder
-* npm install --save-dev @types/chrome
-* npm install --global gulp-cli
-* npm install --save-dev gulp-typescript
-* npm install --save-dev gulp-sourcemaps
-* npm install --save-dev gulp-uglify
-* npm install --save-dev browserify
-* npm install --save-dev vinyl-source-stream
-* npm install --save-dev vinyl-buffer tsify
+* npm install --save firebase @angular/fire
+* npm install --save @types/chrome
+* npm install --save bootstrap
+* npm install --save font-awesome
 
 ## Special note
 The default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify if you plan on using gulp to run task content-script for it's js file. After a bit of research, the format I have in this repo seems to work.
