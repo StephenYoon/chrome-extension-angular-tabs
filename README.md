@@ -15,15 +15,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 The default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify if you plan on using gulp to run task content-script for it's js file. After a bit of research, the format I have in this repo seems to work.
 
 ## More information about Chrome Extensions
-A Chrome Extension can have three distinct front-end components:
-* **Extension icon** (browser action) – this is an icon that is displayed next to the browser’s Omnibox (Google Chrome’s address bar)
-* **Popup** – This is a popup HTML page that is displayed when the extension icon is clicked. It can reference JavaScript and CSS files
-* **Extension pages** – these are HTML pages hosted by the extension. Each page can reference both JavaScript and CSS files
-
-The backend has these three components:
-* **Content script** – a JavaScript file that runs in the context of a page displayed in the browser tab. It has limited access to Chrome extension API (eg. it cannot influence other tabs), but it can do a lot of things in context of the page, eg. explore DOM elements, inject new objects and read the page’s local storage
-* **Event page** (background script) – a page that runs in the background, that is developed either as and HTML page or as a single JavaScript file. It has full access to the Chrome extension API. It is typically used to receive the requests and send replies to other extension elements. External requests (eg. to external APIs) should be executed in this part.
-* **Extension/popup page script** – a JavaScript file referenced by HTML page hosted by extension. It has full access to Chrome extension API.
+A Chrome Extension essentially needs an index.html and a manifest.json file as the minimum to run locally.
+However, to create a fully feature extension we can use Angular as it is an easy framework to work with and enables us to use a variety of libraries quickly.
+A few tweaks to the angular.json file to ensure your "outputPath", "index" and your "styles" and when you ng build your Angular application, it will be ready to be used as a Chrome Extension.
 
 Reference:
 * More information at: https://developer.chrome.com/extensions/getstarted
