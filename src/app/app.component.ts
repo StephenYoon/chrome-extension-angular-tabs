@@ -10,6 +10,7 @@ import { MyTab } from './MyTab';
 export class AppComponent implements OnInit {
   public title = 'Tab Manager!';
   public myTabs: MyTab[];
+  public mySavedTabs: MyTab[];
 
   constructor(
     public firebaseService: FirebaseService,
@@ -18,10 +19,24 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.myTabs = [];
-    
+    this.mySavedTabs = [];
+
+    this.getSavedTabs();
+
     // https://angular.io/api/core/NgZone
     this.zone.run(() => {
       this.getAllTabs();
+    });
+  }
+
+  getSavedTabs(): void {
+    this.firebaseService.getTabs().subscribe(data => {
+      this.mySavedTabs = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as MyTab;
+      })
     });
   }
 
@@ -37,6 +52,7 @@ export class AppComponent implements OnInit {
         console.log(tab.url);
         
         this.myTabs.push({
+          id: null,
           title: tab.title, 
           url: tab.url,
           favIconUrl: tab.favIconUrl,
@@ -48,22 +64,42 @@ export class AppComponent implements OnInit {
       // this.changeDetectorRef.detectChanges();
       console.log('Number of tempTabs: ' + this.myTabs.length);
     });
-  };
+  }
 
   selectTab(tabIndex: number): void {
     chrome.tabs.highlight({'tabs': tabIndex}, function() {});
-  };
+  }
   
   onClickMe() {
     console.log('Update, number of tempTabs: ' + this.myTabs.length);
-  };
+  }
 
-  onClickSave() {
-    let testTab = this.myTabs[0];
-    this.firebaseService.createTab(testTab)
-    .then(() => {
-        console.log('Saved: ' + testTab.title);
-      }      
-    );    
-  };
+  saveTab(myTab: MyTab): void {
+    // save tab if not found in firebase
+    let foundSavedIndex = this.mySavedTabs.findIndex(tab =>  tab.url == myTab.url);
+    if (foundSavedIndex < 0){
+      this.firebaseService.createTab(myTab)
+      .then((response) => {
+        console.log('Saved: ' + myTab);
+        }      
+      );
+    }
+  }
+
+  deleteTab(myTab: MyTab): void {
+    // delete tab if found in saved list from firebase
+    let foundSavedIndex = this.mySavedTabs.findIndex(tab =>  tab.url == myTab.url);
+    if (foundSavedIndex >= 0){
+      this.firebaseService.deleteTab(myTab)
+      .then((response) => {
+        console.log('Deleted: ' + myTab);
+        }      
+      );
+    }
+  }
+
+  isTabSaved(myTab: MyTab): boolean {
+    let foundSavedIndex = this.mySavedTabs.findIndex(tab =>  tab.url == myTab.url);
+    return foundSavedIndex >= 0;
+  }
 }

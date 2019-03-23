@@ -7,18 +7,35 @@
 </div>
 
 <div class="container">
+  <span>Current Tabs</span>
   <ul class="list-group">
     <li class="list-group-item d-flex" *ngFor="let tab of myTabs">
       <div class="image-parent pr-2">
         <a (click)="selectTab(tab.tabIndex)"><img [src]="tab.favIconUrl" height="25px" class="rounded"></a>
       </div>  
-      <span class="small"><a (click)="selectTab(tab.tabIndex)">{{tab.title}}</a></span>              
+      <span class="small"><a (click)="selectTab(tab.tabIndex)">{{tab.title}}</a></span>
+      <div style="position: absolute; right: 5px;">
+        <i [hidden]="!isTabSaved(tab)" class="fa fa-check text-success" aria-hidden="true"></i>
+        <i [hidden]="isTabSaved(tab)" class="fa fa-floppy-o text-primary" aria-hidden="true" (click)="saveTab(tab)"></i>
+      </div>
+    </li>
+  </ul>
+  
+  <span>Saved Tabs</span>
+  <ul class="list-group">
+    <li class="list-group-item d-flex" *ngFor="let tab of mySavedTabs">
+      <div class="image-parent pr-2">
+        <a (click)="selectTab(tab.tabIndex)"><img [src]="tab.favIconUrl" height="25px" class="rounded"></a>
+      </div>  
+      <span class="small"><a href="{{tab.url}}" target="_blank">{{tab.title}}</a></span>   
+      <div style="position: absolute; right: 5px;">
+        <i class="fa fa-trash-o text-warning" aria-hidden="true" (click)="deleteTab(tab)"></i>
+      </div>        
     </li>
   </ul>
   
   <div style="text-align:center;">
     <button class="btn btn-primary btn-sm pt-2 mt-2" (click)="onClickMe()">Refresh tab list!</button>    
-    <button class="btn btn-primary btn-sm pt-2 mt-2" (click)="onClickSave()">Test Saves to Firebase!</button>    
     <div class="pt-2 pb-3" [hidden]="!myTabs.length">Number of tabs: {{myTabs.length}}</div>
   </div>
 </div>

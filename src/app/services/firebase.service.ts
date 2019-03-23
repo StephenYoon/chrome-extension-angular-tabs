@@ -15,32 +15,9 @@ export class FirebaseService {
     return tabId;
   }
 
-  getTab(tabId){
+  getTab(tabUrl){
     //return this.db.collection('tabs').doc(tabId).snapshotChanges();
-    return this.db.collection('tabs', ref => ref.where('id', '==', tabId)).snapshotChanges();
-  }
-
-  updateTab(tabKey, tab){
-    tab.url = tab.url.toLowerCase();
-    return this.db.collection('tabs').doc(tabKey).set(tab);
-  }
-
-  deleteTab(tabId){
-    return this.db.collection('tabs').doc(tabId).delete();
-  }
-
-  getTabs(){
-    return this.db.collection('tabs').snapshotChanges();
-  }
-
-  searchTabs(searchValue){
-    return this.db.collection('tabs',ref => ref.where('name', '>=', searchValue)
-      .where('name', '<=', searchValue + '\uf8ff'))
-      .snapshotChanges()
-  }
-
-  searchTabsByName(value){
-    return this.db.collection('tabs',ref => ref.orderBy('name').startAt(value)).snapshotChanges();
+    return this.db.collection('tabs', ref => ref.where('url', '==', tabUrl)).snapshotChanges();
   }
 
   createTab(tab: MyTab){
@@ -52,5 +29,28 @@ export class FirebaseService {
       tabIndex: tab.tabIndex,
       dateAdded: Date()
     });
+  }
+
+  getTabs(){
+    return this.db.collection('tabs').snapshotChanges();
+  }
+
+  updateTab(tab: MyTab){
+    tab.url = tab.url.toLowerCase();
+    return this.db.collection('tabs').doc(tab.id).set(tab);
+  }
+
+  deleteTab(tab: MyTab){
+    return this.db.collection('tabs').doc(tab.id).delete();
+  }
+
+  searchTabs(searchValue){
+    return this.db.collection('tabs',ref => ref.where('name', '>=', searchValue)
+      .where('name', '<=', searchValue + '\uf8ff'))
+      .snapshotChanges()
+  }
+
+  searchTabsByName(value){
+    return this.db.collection('tabs',ref => ref.orderBy('name').startAt(value)).snapshotChanges();
   }
 }
