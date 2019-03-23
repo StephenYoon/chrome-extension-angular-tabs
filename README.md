@@ -26,10 +26,7 @@ A few tweaks to the angular.json file to ensure your "outputPath", "index" and y
 
 Reference:
 * More information at: https://developer.chrome.com/extensions/getstarted
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Firebase console: https://console.firebase.google.com
 
 ## Code scaffolding
 
