@@ -12,6 +12,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install --save font-awesome
 
 ## Running locally with Chrome
+* Update your Environment.ts file to include your "firebase" property with your apiKey and such.
+  * your apiKey can be found at `https://console.firebase.google.com/project/<your project>/overview`
 * "npm install" if any new npm packages were added
 * "ng build" your Angular application to move your compiled files to the "dist" folder
 * Enable extensions in Chrome
