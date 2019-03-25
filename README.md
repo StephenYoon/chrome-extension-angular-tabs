@@ -30,6 +30,7 @@ A few tweaks to the angular.json file to ensure your "outputPath", "index" and y
 Reference:
 * More information at: https://developer.chrome.com/extensions/getstarted
 * Firebase console: https://console.firebase.google.com
+* Firebase/Angular example: https://www.techiediaries.com/angular-firestore-tutorial/
 
 ## Code scaffolding
 
