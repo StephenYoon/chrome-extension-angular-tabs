@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
       this.mySavedTabs = data.map(e => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data()
+          ...e.payload.doc.data() // gets all other properties from the document in firebase and adds it to this json object (eg title, url, favicon, etc)
         } as MyTab;
       })
     });
