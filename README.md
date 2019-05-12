@@ -11,16 +11,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * npm install --save bootstrap
 * npm install --save font-awesome
 
-## Running locally with Chrome
+## Adding the Chrome Extension
 * Update your Environment.ts file to include your "firebase" property with your apiKey and such.
-  * your apiKey can be found at `https://console.firebase.google.com/project/<your project>/overview`
-* "npm install" if any new npm packages were added
-* "ng build" your Angular application to move your compiled files to the "dist" folder
-* Enable extensions in Chrome
-* Add your extension by referencing your "dist" output folder from your "ng build"
+  * Your apiKey can be found at `https://console.firebase.google.com/project/<your project>/overview`
+* In command prompt, run `npm install` to install node dependencies
+* Also in command prompt, run `ng build` to create your build files in the "dist" folder
+* Enable developer mode in Chrome extensions (chrome://extensions/)
+* Add your extension by clicking on `Load Unpacked` and referencing your "dist" output folder from "ng build"
+* That's it! You should see the Chrome extension in your Chrome browser
 
 ## Special note
 The default tsconfig.json and tsconfig.app.json files may not be structured in a manner that is compatible with browserify if you plan on using gulp to run task content-script for it's js file. After a bit of research, the format I have in this repo seems to work.
+
+## Demo
+![](chrome-extension-angular-tabs.gif)
 
 ## More information about Chrome Extensions
 A Chrome Extension essentially needs an index.html and a manifest.json file as the minimum to run locally.
@@ -33,21 +37,4 @@ Reference:
 * Firebase/Angular example: https://www.techiediaries.com/angular-firestore-tutorial/
 
 ## Code scaffolding
-
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
