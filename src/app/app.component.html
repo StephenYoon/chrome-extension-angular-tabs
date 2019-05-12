@@ -1,9 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center; width:650px;">
-  <h3>
-    Welcome to {{ title }}!
+<div style="width:400px;" class="text-center pt-3">
+  <h3 class="pt1">    
+    <img 
+      width="30px" 
+      alt="Angular Logo" 
+      style="vertical-align: initial;"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    {{ title }}
   </h3>
-  <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 
 <div class="container">
@@ -20,7 +24,9 @@
       </div>
     </li>
   </ul>
+</div>
   
+<div class="container pt-3 pb-3">
   <span>Saved Tabs</span>
   <ul class="list-group">
     <li class="list-group-item d-flex" *ngFor="let tab of mySavedTabs">
@@ -32,12 +38,7 @@
         <i class="fa fa-trash-o text-warning" aria-hidden="true" (click)="deleteTab(tab)"></i>
       </div>        
     </li>
-  </ul>
-  
-  <div style="text-align:center;">
-    <button class="btn btn-primary btn-sm pt-2 mt-2" (click)="onClickMe()">Refresh tab list!</button>    
-    <div class="pt-2 pb-3" [hidden]="!myTabs.length">Number of tabs: {{myTabs.length}}</div>
-  </div>
+  </ul>  
 </div>
 
 
